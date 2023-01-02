@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding: 15px 0;
+    background-color: #d3d3d3;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header{
+    max-width: 900px;
+}
+
+.container{
+    max-width: 1000px;
+}
+
+body{
+    position: relative;
+    min-height: calc(100vh - 108px);
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 40px;
+    background-color: #d3d3d3;
+    text-align: center;
+}
+
+footer p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main{
+    position: relative;
+    margin-top: 68px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.new-single{
+    position: relative;
+    border-radius: 10px;
+}
+
+.new-single a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.new-single img{
+    border-radius: 10px;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.new-single .descricao{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    max-width: 80%;
+    z-index: 2;
+}
+
+.img-news{
+    object-fit: cover;
+}
+
+.news-title-category{
+    background-color: #d3d3d3;
+}
+
+.news-title-category-busca{
+    background-color: #d3d3d3;
+}
+
+.news-title{
+    max-width: 496px;
+}
+
+.title-foto{
+    background-color: #d3d3d3;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+.title{
+    margin: 0px 20px;
+}
+
+.title-foto h5{
+    margin-bottom: 0;
+}
+
+.title-foto img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.content{
+    display: flex;
+}
+
+.content-noticia{
+    width: 64.5%;
+    text-align: justify;
+    border-radius: 10px;
+    padding: 10px;
+    border: 4px solid #d3d3d3;
+    height: fit-content;
+}
+
+.resultado-busca{
+    position: relative;
+    padding: 8px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)
+}
+
+.resultado-busca h2{
+    margin-bottom: 0;
+}
+
+.btn-noticia{
+    max-width: 120px;
+    background-color: #d3d3d3;
+    border: none;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/*admin-painel*/
+
+.header-painel-admin{
+    width: 100%;
+    padding: 10px;
+    background-color: #d3d3d3;
+    color: white;
+}
+
+.form-admin{
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.form-admin input[type=submit]{
+    width: 100%;
+    height: 40px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    cursor: pointer;
+    color: #212529;
+    border-radius: 0.375rem;
+}
+
+.textarea-cadastro{
+    height: 320px;
+}
+
+.lista-noticias{
+    border-radius: 0.375rem;
+    border: 4px solid #e9ecef;
+    padding: 20px;
+    margin: 0 10px 20px 10px;
+}
+
+.noticias-home{
+    display: flex;
+}
+
+.noticias-novas{
+    width: 64.5%;
+}
+
+.noticias-top{
+    width: 34.5%;
+    margin-left: 1%;
+    padding: 10px;
+    border: 4px solid #d3d3d3;
+    border-radius: 0.375rem;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.noticias-top-single{
+    position: relative;
+    display: flex;
+    min-height: 120px;
+}
+
+.noticias-top-single-img{
+    width: 33.3%;
+    position: relative;
+}
+
+.noticias-top-single-img img{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.noticias-top-single-text{
+    position: relative;
+    padding-left: 10px;
+    width: 66.6%;
+}
+
+.noticias-top-single-text strong{
+    margin-bottom: 5px;
+}
+
+.noticias-top-single-text p{
+    margin-bottom: 42px;
+}
+
+.noticias-top-single-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-noticias-top{
+    position: absolute;
+    bottom: 5px;
+    max-width: 90px;
+    background-color: #d3d3d3;
+    border: none;
+    padding: 3px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 10pt;
+}
+
+.res-busca{
+    display: flex;
+}
+
+.res-busca-single{
+    width: 64.5%;
+    height: fit-content;
+}
