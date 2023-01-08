@@ -6,11 +6,11 @@
         <section class="container">
             
             <div class="new-single mb-4 mt-4 text-bg-dark">
-                <a href=""></a><!-- slug -->
-                <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <a href="/<%= posts[0].slug %>"></a>
+                <img src="<%= posts[0].imagem %>">
                 <div class="descricao">
-                    <h1 class="display-4 fst-italic">Título da notícia</h1>
-                    <p class="lead my-3">Conteúdo curto da notícia...</p>
+                    <h1 class="display-4 fst-italic"><%= posts[0].titulo %></h1>
+                    <p class="lead my-3"><%- posts[0].conteudoCurto %>...</p>
                 </div>
             </div>
         </section>
@@ -21,104 +21,28 @@
                 <div class="noticias-novas mb-2">
     
     
-                    <div class="noticias-home-single">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-                            <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
-                                <strong class="d-inline-block mb-2 text-secundary">Categoria</strong>
-                                <h3 class="mb-0 news-title">Título da notícia</h3>
-                            </div>
-                            <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
-                                    <p class="card-text mb-3 mt-3">Conteúdo curto da notícia...</p>
-                                    <button type="button" class="btn-noticia">Saiba Mais...</button>
+                    <% for(let i = 1; i < posts.length; i++){ %>
+    
+                        <div class="noticias-home-single">
+                            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
+                                <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
+                                    <strong class="d-inline-block mb-2 text-secundary"><%= posts[i].categoria %></strong>
+                                    <h3 class="mb-0 news-title"><%= posts[i].titulo %></h3>
                                 </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img img-news" width="200" height="100%"></img>
+                                <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
+                                    <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
+                                        <p class="card-text mb-3 mt-3"><%- posts[i].conteudoCurto %>...</p>
+                                        <button type="button" class="btn-noticia">Saiba Mais...</button>
+                                    </div>
+                                    <div class="col-auto d-none d-lg-block">
+                                        <img src="<%= posts[i].imagem %>" class="bd-placeholder-img img-news" width="200" height="100%"></img>
+                                    </div>
                                 </div>
+                                <a href="<%= posts[i].slug %>" class="stretched-link"></a>
                             </div>
-                            <a href="" class="stretched-link"></a><!-- slug -->
                         </div>
-                    </div>
-
-
-                    <div class="noticias-home-single">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-                            <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
-                                <strong class="d-inline-block mb-2 text-secundary">Categoria</strong>
-                                <h3 class="mb-0 news-title">Título da notícia</h3>
-                            </div>
-                            <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
-                                    <p class="card-text mb-3 mt-3">Conteúdo curto da notícia...</p>
-                                    <button type="button" class="btn-noticia">Saiba Mais...</button>
-                                </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img img-news" width="200" height="100%"></img>
-                                </div>
-                            </div>
-                            <a href="" class="stretched-link"></a><!-- slug -->
-                        </div>
-                    </div>
-
-
-                    <div class="noticias-home-single">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-                            <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
-                                <strong class="d-inline-block mb-2 text-secundary">Categoria</strong>
-                                <h3 class="mb-0 news-title">Título da notícia</h3>
-                            </div>
-                            <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
-                                    <p class="card-text mb-3 mt-3">Conteúdo curto da notícia...</p>
-                                    <button type="button" class="btn-noticia">Saiba Mais...</button>
-                                </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img img-news" width="200" height="100%"></img>
-                                </div>
-                            </div>
-                            <a href="" class="stretched-link"></a><!-- slug -->
-                        </div>
-                    </div>
-
-
-                    <div class="noticias-home-single">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-                            <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
-                                <strong class="d-inline-block mb-2 text-secundary">Categoria</strong>
-                                <h3 class="mb-0 news-title">Título da notícia</h3>
-                            </div>
-                            <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
-                                    <p class="card-text mb-3 mt-3">Conteúdo curto da notícia...</p>
-                                    <button type="button" class="btn-noticia">Saiba Mais...</button>
-                                </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img img-news" width="200" height="100%"></img>
-                                </div>
-                            </div>
-                            <a href="" class="stretched-link"></a><!-- slug -->
-                        </div>
-                    </div>
-
-
-                    <div class="noticias-home-single">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-                            <div class="col px-4 pt-4 pb-3 d-flex flex-column position-static news-title-category">
-                                <strong class="d-inline-block mb-2 text-secundary">Categoria</strong>
-                                <h3 class="mb-0 news-title">Título da notícia</h3>
-                            </div>
-                            <div class="row g-0 overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col ps-4 pe-1 pb-3 d-flex flex-column position-static">
-                                    <p class="card-text mb-3 mt-3">Conteúdo curto da notícia...</p>
-                                    <button type="button" class="btn-noticia">Saiba Mais...</button>
-                                </div>
-                                <div class="col-auto d-none d-lg-block">
-                                    <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img img-news" width="200" height="100%"></img>
-                                </div>
-                            </div>
-                            <a href="" class="stretched-link"></a><!-- slug -->
-                        </div>
-                    </div>
+    
+                    <% } %>
     
                     
                 </div>
@@ -128,50 +52,23 @@
                     <div>
         
                                 
-                        <hr>
-                        <div class="noticias-top-single">
-                            <div class="noticias-top-single-img">
-                                <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            style="min-width: 10px;">
+                        <% for(let i = 0; i < postsTop.length; i++){ %>
+        
+                            <hr>
+                            <div class="noticias-top-single">
+                                <div class="noticias-top-single-img">
+                                    <img src="<%= postsTop[i].imagem %>"
+                                style="min-width: 10px;">
+                                </div>
+                                <div class="noticias-top-single-text">
+                                    <strong class="d-inline-block  text-secundary"><%= postsTop[i].categoria %></strong>
+                                    <p><%= postsTop[i].titulo %></p>
+                                    <button type="button" class="btn-noticias-top">Saiba Mais...</button>
+                                </div>
+                                <a href="<%= postsTop[i].slug %>" class="noticias-top-single-link"></a>
                             </div>
-                            <div class="noticias-top-single-text">
-                                <strong class="d-inline-block  text-secundary">Categoria da notícia</strong>
-                                <p>Título da notícia</p>
-                                
-                                <button type="button" class="btn-noticias-top">Saiba Mais...</button>
-                            </div>
-                            <a href="" class="noticias-top-single-link"></a><!-- slug -->
-                        </div>
-
-                        <hr>
-                        <div class="noticias-top-single">
-                            <div class="noticias-top-single-img">
-                                <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            style="min-width: 10px;">
-                            </div>
-                            <div class="noticias-top-single-text">
-                                <strong class="d-inline-block  text-secundary">Categoria da notícia</strong>
-                                <p>Título da notícia</p>
-                                
-                                <button type="button" class="btn-noticias-top">Saiba Mais...</button>
-                            </div>
-                            <a href="" class="noticias-top-single-link"></a><!-- slug -->
-                        </div>
-
-                        <hr>
-                        <div class="noticias-top-single">
-                            <div class="noticias-top-single-img">
-                                <img src="https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            style="min-width: 10px;">
-                            </div>
-                            <div class="noticias-top-single-text">
-                                <strong class="d-inline-block  text-secundary">Categoria da notícia</strong>
-                                <p>Título da notícia</p>
-                                
-                                <button type="button" class="btn-noticias-top">Saiba Mais...</button>
-                            </div>
-                            <a href="" class="noticias-top-single-link"></a><!-- slug -->
-                        </div>
+            
+                            <% } %>
         
                                                 
                     </div>
