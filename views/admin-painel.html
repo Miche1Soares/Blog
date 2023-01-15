@@ -77,29 +77,15 @@
                 </div>
 
             
-                <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between;" class="noticia-single row">
-                    <p class="col-3">Título: Título da notícia %></p>
-                    <p class="col-8">Conteúdo: Conteúdo curto da notícia...</p>
-                    <a href="" class="col-1">(X)</a>
-                </div>
-
-                <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between;" class="noticia-single row">
-                    <p class="col-3">Título: Título da notícia</p>
-                    <p class="col-8">Conteúdo: Conteúdo curto da notícia...</p>
-                    <a href="" class="col-1">(X)</a>
-                </div>
-
-                <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between;" class="noticia-single row">
-                    <p class="col-3">Título: Título da notícia</p>
-                    <p class="col-8">Conteúdo: Conteúdo curto da notícia...</p>
-                    <a href="" class="col-1">(X)</a>
-                </div>
-
-                <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between;" class="noticia-single row">
-                    <p class="col-3">Título: Título da notícia</p>
-                    <p class="col-8">Conteúdo: Conteúdo curto da notícia...</p>
-                    <a href="" class="col-1">(X)</a>
-                </div>
+                <% for(let i = 0; i < posts.length; i++){ %>
+            
+                    <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between;" class="noticia-single row">
+                        <p class="col-3">Título: <%= posts[i].titulo %></p>
+                        <p class="col-8">Conteúdo: <%= posts[i].conteudoCurto %>...</p>
+                        <a href="/admin/deletar/<%= posts[i].id %>" class="col-1">(X)</a>
+                    </div>
+                
+                <% } %>
 
                 
             </div>

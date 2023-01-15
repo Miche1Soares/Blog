@@ -6,9 +6,15 @@ const app = express()
 
 const mongoose = require('mongoose')
 
-const {senha} = require('./config.js')
+const {senha, usuarios, session_secret} = require('./config.js')
 
 const Posts = require('./Posts.js')
+
+const session = require('express-session')
+
+const fileupload = require('express-fileupload')
+
+const fs = require('fs')
 
 
 app.engine('html', require('ejs').renderFile)
@@ -20,6 +26,16 @@ app.set('views', path.join(__dirname, '/views'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
+}))
+
+app.use(session({
+    secret: session_secret,
+    cookie: {maxAge: 120000}
+}))
+
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: path.join(__dirname, 'temp')
 }))
 
 
@@ -182,13 +198,100 @@ app.get('/:slug',(req,res)=>{
 
 app.get('/admin/login', (req,res)=>{
 
-    res.render('admin-login')    
+    if(req.session.login == null){
+
+        res.render('admin-login')
+
+    }else{
+
+        Posts.find({}).sort({'_id': -1}).exec((err, posts)=>{
+            
+            posts = posts.map((val)=>{
+                return{
+                    id: val._id,
+                    titulo: val.titulo,
+                    conteudoCurto: val.conteudo.substring(0,60)
+                }
+            })
+
+            res.render('admin-painel', {posts:posts})
+        })
+
+    }    
 
 })
 
-app.get('/admin/painel', (req,res)=>{
+app.post('/admin/login', (req,res)=>{
 
-    res.render('admin-painel')    
+    usuarios.map((val)=>{
+
+        if(val.login == req.body.login && val.senha == req.body.senha){
+            
+            req.session.login = 'Magno'
+
+        }
+
+    })
+
+    res.redirect('/admin/login')
+
+})
+
+app.post('/admin/cadastro', (req,res)=>{
+
+    let formato = req.files.arquivo.name.split('.')
+    var imagem = ''
+
+    if(formato[formato.length - 1] == 'jpeg'){
+
+        imagem = new Date().getTime()+'.jpeg'
+        req.files.arquivo.mv(__dirname+'/public/images/'+ imagem)
+
+    }else if(formato[formato.length - 1] == 'png'){
+
+        imagem = new Date().getTime()+'.png'
+        req.files.arquivo.mv(__dirname+'/public/images/'+ imagem)
+
+    }else{
+
+        fs.unlinkSync(req.files.arquivo.tempFilePath)
+
+    }
+
+    var slug = (titulo) => {
+        let slugEdit = []
+        let slugFrase = ''
+        for(let i=0; i<titulo.split(' ').length; i++)
+        {
+            slugEdit.push(titulo.split(' ')[i])
+            slugEdit.push('-')
+        }
+        slugEdit.pop()
+        for(let i=0; i<slugEdit.length; i++)
+        {
+            slugFrase += `${slugEdit[i].toLowerCase()}`
+        }
+        return slugFrase
+    }
+    
+    Posts.create({
+        titulo: req.body.titulo_noticia,
+        imagem: 'http://localhost:5000/public/images/'+imagem,
+        categoria: req.body.categoria,
+        conteudo: req.body.noticia,
+        slug: slug(req.body.titulo_noticia),
+        autor: usuarios[0].nome_autor
+    })
+    
+    res.redirect('/admin/login')
+
+})
+
+app.get('/admin/deletar/:slug',(req,res)=>{
+
+    Posts.deleteOne({_id:req.params.slug}).then(()=>{
+        res.redirect('/admin/login')
+    })    
 
 })
 

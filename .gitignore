@@ -107,3 +107,7 @@ dist
 #==================
 
 config.js
+
+public/images
+
+temp
